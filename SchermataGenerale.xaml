@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="Hardware_Monitor.SchermataGenerale"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hardware_Monitor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        
+        <!-- Due Colonne-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Due Righe-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        
+        <!-- PRIMO RIQUADRO IN ALTO A SX: CPU-->
+        <Border Grid.Column="0" Grid.Row="0"
+                Background="{StaticResource SfondoFinestra}"
+                CornerRadius="8"
+                Margin="10">
+            
+            <StackPanel Margin="15">
+
+                <TextBlock Text="CPU" 
+                           Style="{StaticResource StyleTestoPrincipale}"/>
+
+                <TextBlock  x:Name="TxtCpuDatiGenerali" 
+                            Text="Carico: -- %&#x0a;Temperatura: -- °C&#x0a;Frequenza: -- GHz" 
+                            FontSize="14" 
+                            Foreground="#A0A0A0" 
+                            Margin="0,10,0,10"
+                            xml:space="preserve"/>
+
+
+                <Viewbox Height="80" HorizontalAlignment="Stretch">
+
+                    <Canvas x:Name="TelaMiniGraficoCpu" 
+                            Width="500" Height="100" 
+                            Background="#1E1E1E">
+
+                        <Polyline   x:Name="LineaMiniGraficoCpu" 
+                                    Stroke="Red" 
+                                    StrokeThickness="2" />
+
+                    </Canvas>
+                </Viewbox>
+                
+                
+            </StackPanel>
+
+            
+            
+        </Border>
+
+
+
+
+
+        <!-- SECONDO RIQUADRO IN ALTO A DX: GPU-->
+        <Border Grid.Column="1" Grid.Row="0"
+        Background="{StaticResource SfondoFinestra}"
+        CornerRadius="8"
+        Margin="10">
+
+            <StackPanel Margin="15">
+
+                <TextBlock Text="GPU" 
+                           Style="{StaticResource StyleTestoPrincipale}"/>
+
+                <TextBlock  x:Name="TxtGpuDatiGenerali" 
+                    Text="Carico: -- %&#x0a;Temperatura: -- °C&#x0a;VRAM: -- GB" 
+                    FontSize="14" 
+                    Foreground="#A0A0A0" 
+                    Margin="0,10,0,10"
+                    xml:space="preserve"/>
+
+
+                <Viewbox Height="80" HorizontalAlignment="Stretch">
+
+                    <Canvas x:Name="TelaMiniGraficoGpu" 
+                    Width="500" Height="100" 
+                    Background="#1E1E1E">
+
+                        <Polyline   x:Name="LineaMiniGraficoGpu" 
+                            Stroke="Red" 
+                            StrokeThickness="2" />
+
+                    </Canvas>
+                </Viewbox>
+
+
+            </StackPanel>
+
+
+
+        </Border>
+
+
+        <!-- TERZO RIQUADRO IN BASSO A SX: RAM-->
+        <Border Grid.Column="0" Grid.Row="1"
+                Background="{StaticResource SfondoFinestra}"
+                CornerRadius="8"
+                Margin="10">
+
+            <StackPanel Margin="15">
+
+                <TextBlock Text="RAM" 
+                           Style="{StaticResource StyleTestoPrincipale}"/>
+
+
+                <TextBlock x:Name="TxtRamDatiGenerali" 
+                           Text="Utilizzata: -- GB&#x0a;Disponibile: -- GB&#x0a;Totale: -- GB" 
+                           FontSize="14" 
+                           Foreground="#A0A0A0" 
+                           Margin="0,10,0,15"
+                           xml:space="preserve"/>
+
+                <ProgressBar x:Name="BarraRamGenerale" 
+                             Height="20" 
+                             Minimum="0" 
+                             Maximum="100" 
+                             Value="0" 
+                             Foreground="#007ACC" 
+                             Background="#1E1E1E" 
+                             BorderThickness="0"/>
+
+
+            </StackPanel>
+
+
+
+        </Border>
+
+        <!-- QUARTO RIQUADRO IN BASSO A DX: DISCHI-->
+        <Border Grid.Column="1" Grid.Row="1"
+        Background="{StaticResource SfondoFinestra}"
+        CornerRadius="8"
+        Margin="10">
+
+            <StackPanel Margin="15">
+
+                <TextBlock Text="DISCHI"
+                           Style="{StaticResource StyleTestoPrincipale}"/>
+
+                <TextBlock x:Name="TxtDischiDatiGenerali" 
+                           Text="Unità C: -- GB liberi di -- GB&#x0a;Stato di salute: --" 
+                           FontSize="14" 
+                           Foreground="#A0A0A0" 
+                           Margin="0,10,0,15"
+                           xml:space="preserve"/>
+
+                <ProgressBar x:Name="BarraDiscoGenerale" 
+                             Height="20" 
+                             Minimum="0" 
+                             Maximum="100" 
+                             Value="0" 
+                             Foreground="#E81123" 
+                             Background="#1E1E1E" 
+                             BorderThickness="0"
+                             VerticalAlignment="Center"/>
+
+
+            </StackPanel>
+
+
+
+        </Border>
+
+
+    </Grid>
+</UserControl>
